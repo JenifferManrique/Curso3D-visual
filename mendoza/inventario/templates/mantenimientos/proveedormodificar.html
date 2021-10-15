@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block contenidohijas %}
+<div class="container">
+    <h1 style="text-align:center">proveedor modificar</h1>
+    <a href="{% url 'proveedorlistar' %}">Cancelar</a>
+</div>
+
+<div class="container">
+   <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+       <button type="submit">Guardar</button>
+
+   </form>
+</div>
+
+{% endblock %}

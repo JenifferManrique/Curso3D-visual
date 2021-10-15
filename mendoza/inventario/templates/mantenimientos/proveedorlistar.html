@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block contenidohijas %}
+
+<main>
+    <!--Acerca de - contenido -->
+    <div class="container">
+        <div class="col">
+            <h2 class="titulo" style="text-align:center;">Mantenimientos de proveedor</h2>
+
+            <div class="row justify-content-center">
+                <a href="{% url 'proveedorguardar' %}" class="btn btn-success mr-3" target="modificar"><span
+                        class="fa fa-print"></span>Guardar&nbsp;</a>
+                <a href="{% url 'proveedorpdf' %}" class="btn btn-success mr-3" target="print"><span
+                        class="fa fa-print"></span> Imprimir</a>
+            </div>
+            <br>
+            <div>
+            <table class="table table-bordered" border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Cedula</th>
+                    <th>Apellido y nombres</th>
+                    <th>Telefono</th>
+                    <th>Activado/Anulado</th>
+                    <th>Modificar</th>
+                    <th>Imprimir</th>
+                </tr>
+                {% for presenta in object_list %}
+                <tr>
+                    <td>{{ presenta.id }}</td>
+                    <td>{{ presenta.proveedorcedula }}</td>
+                    <td>{{ presenta.proveedornombres }}</td>
+                    <td>{{ presenta.proveedortelefono }}</td>
+                    <td>{{ presenta.proveedoranulado }}</td>
+                    <td><a href="{% url 'proveedorindividual' presenta.id  %}" class="btn btn-warning" target="print"><span class="fa fa-print"></span> Imprimir</a></td>
+                    <td><a href="{% url 'proveedormodificar' presenta.id  %}" class="btn btn-primary" target="modificar"><span class="fa fa-print"></span> Modificar</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+                 </div>
+        </div>
+    </div>
+    </main>
+            {% endblock %}

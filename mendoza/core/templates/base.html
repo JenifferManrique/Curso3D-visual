@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block titulohija %} {% endblock %}
+
+    </title>
+     {% load static %}
+    <link href="{% static 'css/estilos.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" type="text/css">
+    <script src="https://kit.fontawesome.com/2d4eb5379c.js" crossorigin="anonymous"></script>
+</head>
+<style>
+        #menu{
+    background-color:#EC33FF;
+    font-family: Segoe UI Black;
+    }
+
+    #menu ul{
+        list-style-type: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #menu ul li{
+        display: inline-block;
+    }
+
+    #menu ul li a{
+        color:white;
+        display: block;
+        padding: 5px 100px;
+        text-decoration: none;
+        font-size:20px;
+    }
+
+    #menu ul li a:hover{
+        background-color: #FF33BE;
+    }
+
+    .item-r{
+        float: right;
+    }
+
+    #menu .fas{
+        color:#43E7D5;
+        font-size:20px;
+        text-align:center;
+    }
+
+    </style>
+<body style="background-color: white;">
+ <div class="col-md-12 col-lg-auto" id="menu">
+    <ul>
+     <li><a href="{% url 'grupolistar' %}"><i class="fas fa-clipboard"></i>Grupos</a></li>
+     <li><a href="{% url 'productolistar' %}"><i class="fas fa-magic"></i>Productos</a></li>
+     <li><a href="{% url 'proveedorlistar' %}"><i class="fas fa-address-book"></i>Proveedor</a></li>
+        <li class="item-r"><a href="{% url 'clientelistar' %}"><i class="fas fa-users"></i>Clientes</a></li>
+        <li><a href="#"><i class="fas fa-shopping-cart"></i>Compras</a></li>
+     <li class="item-r"><a href="#"><i class="fab fa-cc-mastercard"></i>Ventas</a></li>
+     <li class="item-r"><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
+
+    </ul>
+ </div>
+ {% block contenidohijas %}
+
+ {% endblock %}
+
+
+
+
+</body>
+</html>

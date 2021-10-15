@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block contenidohijas %}
+v<main>
+		<!--Acerca de - contenido -->
+		<div class="container">
+				<div class="col">
+					<h2 class="titulo" style="text-align:center;">Guardas nuevos Clientes </h2>
+					<div class="row contacto justify-content-center align-items-center">
+                        <form method="POST">
+                            {% csrf_token %}
+                          <div class="form-group row">
+                            <label style="position:absolute; top:90px; left:390px;" for="colFormLabelSm" class="col-sm-6 col-form-label col-form-label-sm">Cedula
+                              del cliente:</label>
+                              </div>
+                            <div style="position:absolute; top:90px; left:570px;">
+                              {{form.clientecedula}}
+                            </div>
+
+                          <div class="form-group row">
+                            <label style="position:absolute; top:120px; left:390px;" for="colFormLabel" class="col-sm-6 col-form-label">Nombres:</label>
+                          </div>
+                              <div style="position:absolute; top:123px; left:556px;" class="col-sm-4">
+                              {{form.clientenombre}}
+                            </div>
+
+                            <div class="form-group row">
+                              <label style="position:absolute; top:155px; left:390px;" for="colFormLabel" class="col-sm-6 col-form-label">Telefono:</label>
+                            </div>
+                                <div style="position:absolute; top:155px; left:557px;" class="col-6 col-sm-3">
+                                {{form.clientetelefono}}
+                              </div>
+
+                              <div style="position:absolute; top:190px; left:405px;" class="form-group row">
+                                <label for="colFormLabel" class="col-sm-7 col-form-label">Estado:</label>
+                                </div>
+
+                                  <div style="position:absolute; top:189px; left:556px;" class="col-6 col-sm-3">
+                                  {{form.clienteanulado}}
+                                </div>
+
+                       <button style="position:absolute; top:250px; left:450px;" type="submit" class="btn btn-info btn-lg btn-responsive" id="search">
+                       <span class="glyphicon glyphicon-search"></span> Guardar</button>
+                       <a style="position:absolute; top:250px; left:580px;"  class="btn btn-info btn-lg btn-responsive"   href="{% url 'clientelistar' %}"> cancelar </a>
+</form>
+
+
+					</div>
+
+				</div>
+		</div>
+	</main>
+
+{% endblock %}
